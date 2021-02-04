@@ -6,17 +6,77 @@ const app = express();
 app.use(express.json());
 
 app.get('/mean', (req, res, next) => {
-    if (!req.query.nums) {
-        throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
+    try {
+        if (!req.query.nums) {
+            throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
+        }
+
+
+        let stringNums = req.query.nums.split(',');
+        let numArr = stringArrToNum(stringNums);
+        if (numArr instanceof Error) {
+            throw new ExpressError(numsArr.message)
+        }
+
+        let result = {
+            operation: "mean",
+            result: mean(numArr)
+        }
+
+        return res.send(result);
+    } catch (err) {
+        return next(err);
     }
 
 });
 
-app.get('/mean', (req, res, next) => {
+app.get('/median', (req, res, next) => {
+    try {
+        if (!req.query.nums) {
+            throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
+        }
+
+
+        let stringNums = req.query.nums.split(',');
+        let numArr = stringArrToNum(stringNums);
+        if (numArr instanceof Error) {
+            throw new ExpressError(numsArr.message)
+        }
+
+        let result = {
+            operation: "median",
+            result: median(numArr)
+        }
+
+        return res.send(result);
+    } catch (err) {
+        return next(err);
+    }
 
 });
 
-app.get('/mean', (req, res, next) => {
+app.get('/mode', (req, res, next) => {
+    try {
+        if (!req.query.nums) {
+            throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
+        }
+
+
+        let stringNums = req.query.nums.split(',');
+        let numArr = stringArrToNum(stringNums);
+        if (numArr instanceof Error) {
+            throw new ExpressError(numsArr.message)
+        }
+
+        let result = {
+            operation: "mode",
+            result: mode(numArr)
+        }
+
+        return res.send(result);
+    } catch (err) {
+        return next(err);
+    }
 
 });
 
