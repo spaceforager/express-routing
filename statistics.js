@@ -40,4 +40,30 @@ const median = arr => {
     return median;
 }
 
+/** Convert string to array. Validate whether a string converted to number is a number*/
+
+const stringArrToNum = strArr => {
+    let result = [];
+  
+    for (let i = 0; i < strArr.length; i++) {
+      let valToNumber = Number(strArr[i]);
+  
+      if (Number.isNaN(valToNumber)) {
+        return new Error(
+          `The value '${strArr[i]}' at index ${i} is not a valid number.`
+        );
+      }
+  
+      result.push(valToNumber);
+    }
+    return result;
+  }
+
+module.exports = {
+    mean,
+    frequency,
+    mode, 
+    median,
+    stringArrToNum
+}
 

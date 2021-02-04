@@ -1,11 +1,14 @@
 const express = require('express');
 const ExpressError = require('./expressError');
+const { mean, frequency, mode, median, stringArrToNum } = require('./statistics')
 const app = express();
 
 app.use(express.json());
 
 app.get('/mean', (req, res, next) => {
-
+    if (!req.query.nums) {
+        throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
+    }
 });
 
 app.get('/mean', (req, res, next) => {
