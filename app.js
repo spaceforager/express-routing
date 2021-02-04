@@ -9,6 +9,7 @@ app.get('/mean', (req, res, next) => {
     if (!req.query.nums) {
         throw new ExpressError("You must pass a query nums with values set to comma-separated numbers", 400)
     }
+
 });
 
 app.get('/mean', (req, res, next) => {

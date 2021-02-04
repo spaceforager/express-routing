@@ -44,26 +44,30 @@ const median = arr => {
 
 const stringArrToNum = strArr => {
     let result = [];
-  
+
     for (let i = 0; i < strArr.length; i++) {
-      let valToNumber = Number(strArr[i]);
-  
-      if (Number.isNaN(valToNumber)) {
-        return new Error(
-          `The value '${strArr[i]}' at index ${i} is not a valid number.`
-        );
-      }
-  
-      result.push(valToNumber);
+        let valToNumber = Number(strArr[i]);
+
+        if (Number.isNaN(valToNumber)) {
+            return new Error(
+                `The value '${strArr[i]}' at index ${i} is not a valid number.`
+            );
+        }
+
+        result.push(valToNumber);
     }
     return result;
-  }
+}
 
 module.exports = {
     mean,
     frequency,
-    mode, 
+    mode,
     median,
     stringArrToNum
 }
+
+
+
+
 
